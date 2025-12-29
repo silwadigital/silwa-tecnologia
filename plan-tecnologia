@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento Estratégico 2026 - SILWA TECNOLOGIA</title>
+    <style>
+        :root {
+            --primary: #0f172a; /* Azul Escuro */
+            --accent: #2563eb; /* Azul Royal */
+            --success: #10b981; /* Verde */
+            --warning: #f59e0b; /* Laranja */
+            --danger: #ef4444; /* Vermelho */
+            --bg: #f1f5f9;
+            --card-bg: #ffffff;
+            --text: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+            margin: 40px 0 20px 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Goal Card (The Big Number) */
+        .goal-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-top: -30px;
+            position: relative;
+            flex-wrap: wrap;
+        }
+
+        .goal-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .goal-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+        }
+
+        .goal-label {
+            font-size: 1rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .arrow {
+            font-size: 2rem;
+            color: #cbd5e1;
+        }
+
+        /* Product Grid */
+        .grid-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-top: 4px solid transparent;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card.tech { border-color: var(--accent); }
+        .card.service { border-color: var(--warning); }
+        .card.churn { border-color: var(--danger); background-color: #fef2f2; }
+
+        .card h3 { margin-bottom: 15px; color: var(--primary); }
+        .card ul { list-style: none; }
+        .card li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .card li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        .tag-new { background: var(--success); color: white; }
+        .tag-core { background: var(--primary); color: white; }
+
+        /* Timeline / Roadmap */
+        .roadmap {
+            display: flex;
+            justify-content: space-between;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .phase {
+            flex: 1;
+            min-width: 250px;
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .phase h4 { color: var(--accent); margin-bottom: 10px; }
+        .phase .milestone { font-size: 1.8rem; font-weight: bold; color: var(--primary); }
+
+        /* KPI Dashboard Area */
+        .kpi-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .kpi-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .kpi-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+        .kpi-title { font-size: 0.9rem; color: #64748b; font-weight: 600; text-transform: uppercase; }
+        .kpi-input {
+            margin-top: 10px;
+            padding: 5px;
+            width: 80%;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            text-align: center;
+            background: #f1f5f9;
+            color: #94a3b8;
+        }
+
+        /* Footer */
+        .footer-note {
+            text-align: center;
+            margin-top: 50px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .goal-banner { flex-direction: column; gap: 20px; }
+            .arrow { transform: rotate(90deg); }
+        }
+        
+        @media print {
+            body { background: white; }
+            .card { box-shadow: none; border: 1px solid #ddd; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SILWA TECNOLOGIA</h1>
+        <p>Planejamento Estratégico & Visão 2026</p>
+    </header>
+
+    <div class="container">
+
+        <div class="goal-banner">
+            <div class="goal-item">
+                <span class="goal-number">38</span>
+                <span class="goal-label">Clientes Atuais (2025)</span>
+            </div>
+            <div class="arrow">➜</div>
+            <div class="goal-item">
+                <span class="goal-number">100</span>
+                <span class="goal-label">Meta Julho/26</span>
+            </div>
+            <div class="arrow">➜</div>
+            <div class="goal-item">
+                <span class="goal-number" style="color: var(--success);">200</span>
+                <span class="goal-label">Meta Dezembro/26</span>
+            </div>
+        </div>
+
+        <h2 class="section-title">Evolução do Ecossistema</h2>
+        <div class="grid-products">
+            <div class="card tech">
+                <h3>🖥️ Core Business (Tech)</h3>
+                <p style="margin-bottom: 15px; font-size: 0.9rem;">Foco: Independência do cliente e automação.</p>
+                <ul>
+                    <li><strong>PDV LEGAL</strong> <span class="tag tag-core">Atual</span><br><small>Sistema de Frente de Caixa</small></li>
+                    <li><strong>DELIVERY LEGAL</strong> <span class="tag tag-new">Expansão</span><br><small>App Próprio + Integração iFood</small></li>
+                    <li><strong>FIDELIDADE</strong> <span class="tag tag-new">Novo</span><br><small>Sistema de Pontos integrado ao PDV</small></li>
+                </ul>
+            </div>
+
+            <div class="card service">
+                <h3>🚀 Novos Serviços 2026</h3>
+                <p style="margin-bottom: 15px; font-size: 0.9rem;">Foco: Retenção e Sucesso do Cliente.</p>
+                <ul>
+                    <li><strong>Consultoria Delivery</strong> <span class="tag tag-new">Q2</span><br><small>Engenharia de Cardápio</small></li>
+                    <li><strong>Tráfego Pago</strong> <span class="tag tag-new">Q3</span><br><small>Gestão de Ads para Restaurantes</small></li>
+                    <li><strong>Eventos Presenciais</strong> <span class="tag tag-new">2 Edições</span><br><small>Networking e Educação</small></li>
+                </ul>
+            </div>
+
+            <div class="card churn">
+                <h3 style="color: var(--danger);">⚠️ Retenção (Churn)</h3>
+                <p style="margin-bottom: 10px;"><strong>Histórico:</strong> Perda de 7 Clientes no último ciclo.</p>
+                <p><strong>Ação Estratégica:</strong></p>
+                <ul style="margin-top: 10px;">
+                    <li>Implementação de Consultoria como barreira de saída.</li>
+                    <li>Monitoramento ativo de satisfação.</li>
+                    <li>Recuperação: Ofertar Delivery Legal para ex-clientes.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title">Roadmap de Crescimento</h2>
+        <div class="roadmap">
+            <div class="phase">
+                <h4>1º Semestre (Jan - Jun)</h4>
+                <div class="milestone">100 Clientes</div>
+                <p style="margin-top: 10px; font-size: 0.9rem;">
+                    • Venda Agressiva do PDV + Delivery Legal.<br>
+                    • Integração dos produtos atuais.<br>
+                    • Início do Tráfego Próprio.
+                </p>
+            </div>
+            <div class="phase" style="border-color: var(--warning);">
+                <h4>2º Semestre (Jul - Dez)</h4>
+                <div class="milestone">200 Clientes</div>
+                <p style="margin-top: 10px; font-size: 0.9rem;">
+                    • Lançamento da Consultoria e Tráfego Pago.<br>
+                    • Realização dos 2 Eventos.<br>
+                    • Consolidação da marca como "Ecossistema".
+                </p>
+            </div>
+        </div>
+
+        <h2 class="section-title">📊 KPIs & Monitoramento Mensal</h2>
+        <div class="kpi-board">
+            <div class="kpi-card">
+                <span class="kpi-icon">🤝</span>
+                <div class="kpi-title">Presença na Base<br>(Indicações)</div>
+                <div class="kpi-input">Meta: 20% Base</div>
+            </div>
+            
+            <div class="kpi-card">
+                <span class="kpi-icon">📢</span>
+                <div class="kpi-title">Tráfego Pago<br>(ROI)</div>
+                <div class="kpi-input">Meta: CAC < R$ X</div>
+            </div>
+
+            <div class="kpi-card">
+                <span class="kpi-icon">🗂️</span>
+                <div class="kpi-title">CRM Pipeline<br>(Novos Leads)</div>
+                <div class="kpi-input">Meta: 50/mês</div>
+            </div>
+
+            <div class="kpi-card">
+                <span class="kpi-icon">📅</span>
+                <div class="kpi-title">Agendamentos<br>(Demos Realizadas)</div>
+                <div class="kpi-input">Meta: 15/sem</div>
+            </div>
+             <div class="kpi-card">
+                <span class="kpi-icon">📉</span>
+                <div class="kpi-title">Taxa de Churn<br>(Cancelamentos)</div>
+                <div class="kpi-input">Meta: < 1%</div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>Silwa Tecnologia © 2026 - Planejamento Estratégico Confidencial</p>
+        </div>
+
+    </div>
+</body>
+</html>
